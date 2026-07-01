@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a problem with NES ViaBridge
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        NES ViaBridge adds cross-version support to Not Enough Spectators. For **older-client join
+        failures** (e.g. "Failed to load registries"), that is currently an upstream ViaBackwards
+        limitation for 26.2 — see the README before filing.
+  - type: input
+    id: mc-version
+    attributes:
+      label: Host Minecraft version
+      placeholder: "26.2"
+    validations:
+      required: true
+  - type: input
+    id: spectator-version
+    attributes:
+      label: Spectator Minecraft version (if a join issue)
+      placeholder: "e.g. 1.21.8, or N/A"
+  - type: input
+    id: versions
+    attributes:
+      label: NES + ViaBridge versions
+      placeholder: "NES 1.x, ViaBridge 1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant part of `logs/latest.log` (host, and spectator client if a join issue).
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I am running plain Not Enough Spectators (NOT the embedded-Via build) alongside this.
+          required: true
+        - label: I am NOT also running ViaFabric / standalone ViaVersion.
+          required: true

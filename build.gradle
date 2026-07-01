@@ -1,0 +1,79 @@
+plugins {
+	// 26.x uses the new non-remapping Loom plugin (Minecraft is unobfuscated, official mappings).
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	maven {
+		name = 'ViaVersion'
+		url = 'https://repo.viaversion.com'
+	}
+	mavenCentral()
+}
+
+loom {
+	mods {
+		"nes-viabridge" {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+configurations {
+	// Libraries to fat-jar into the mod jar so the companion is self-contained at runtime.
+	// (Via jars are not Fabric mods, so they can't be jar-in-jar'd; and we must be the only
+	// thing that calls Via.init, so we cannot rely on a separately-installed ViaFabric.)
+	bundle
+	implementation.extendsFrom bundle
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	// New Loom does not remap, so deps use the standard configurations.
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// ViaVersion stack. The core `viaversion` artifact is self-contained (it shades its own libs
+	// under com.viaversion.viaversion.libs.*); only netty/slf4j come from Minecraft.
+	bundle "com.viaversion:viaversion:${project.viaversion_version}"
+	bundle "com.viaversion:viabackwards:${project.viabackwards_version}"
+	bundle "com.viaversion:viarewind:${project.viarewind_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": inputs.properties.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	inputs.property "archivesName", project.base.archivesName
+
+	// Fat-jar the ViaVersion stack into the mod jar (non-remapping Loom, so no remap conflicts).
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from {
+		configurations.bundle.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+	exclude "META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "META-INF/MANIFEST.MF", "module-info.class"
+}
