@@ -5,11 +5,12 @@
   "name": "NES ViaBridge",
   "description": "Companion mod for Not Enough Spectators that lets spectators on other Minecraft versions connect to a 26.2 host, using the ViaVersion / ViaBackwards / ViaRewind stack.",
   "authors": [
-    "Cheezer"
+    "the-real-ltcg"
   ],
   "contact": {
-    "homepage": "https://github.com/Cheezer1656/NotEnoughSpectators",
-    "sources": "https://github.com/Cheezer1656/NotEnoughSpectators"
+    "homepage": "https://modrinth.com/mod/nes-via-bridge",
+    "sources": "https://github.com/the-real-ltcg/NES-ViaBridge",
+    "issues": "https://github.com/the-real-ltcg/NES-ViaBridge/issues"
   },
   "license": "GPL-3.0-only",
   "environment": "client",

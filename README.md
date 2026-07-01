@@ -9,6 +9,15 @@ ViaRewind** stack and splices Via's translation handlers into the NES spectator 
 > companion is the two-jar alternative — use it **only** with a *plain* NES build that does **not**
 > embed Via, or the two will conflict (both boot ViaVersion, which may only init once).
 
+## Downloads
+
+- **[Modrinth](https://modrinth.com/mod/nes-via-bridge)** (recommended)
+- **[GitHub Releases](../../releases)**
+- **[CurseForge](https://www.curseforge.com/minecraft/mc-mods/nes-via-bridge)**
+
+Main mod: **[Not Enough Spectators (Fix)](https://github.com/the-real-ltcg/Not-Enough-Spectators-Fix)**
+([Modrinth](https://modrinth.com/mod/not-enough-spectators-fix)).
+
 ## How it works
 
 NES runs a small Netty server inside the host's client and replays the host's captured packets
