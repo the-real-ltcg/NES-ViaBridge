@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  * The {@link ViaPlatform} implementation for the NES spectator server. It is a "backend server"
- * style platform: a single native version (26.2) that many client versions translate to/from.
+ * style platform: a single native version (26.3) that many client versions translate to/from.
  */
 public class BridgePlatform implements ViaPlatform<UUID> {
 

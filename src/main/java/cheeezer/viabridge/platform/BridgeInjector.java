@@ -7,7 +7,7 @@ import com.viaversion.viaversion.libs.gson.JsonObject;
 /**
  * We inject the Via handlers ourselves (per spectator connection, from the NES pipeline mixin),
  * so the standard {@link #inject()}/{@link #uninject()} hooks are no-ops. The important part is
- * {@link #getServerProtocolVersion()}: it tells Via the native version the NES host speaks (26.2),
+ * {@link #getServerProtocolVersion()}: it tells Via the native version the NES host speaks (26.3),
  * which is the target every spectator's protocol is translated to/from.
  */
 public class BridgeInjector implements ViaInjector {
@@ -22,7 +22,7 @@ public class BridgeInjector implements ViaInjector {
 
     @Override
     public ProtocolVersion getServerProtocolVersion() {
-        return ProtocolVersion.v26_2;
+        return ProtocolVersion.v26_3;
     }
 
     @Override

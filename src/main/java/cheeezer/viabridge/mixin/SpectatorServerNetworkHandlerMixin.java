@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  *
  * <p>This is the standard "backend server" injection (mirroring Via's Bukkit handlers): a
  * server-side {@link UserConnection} is created and the Via decode/encode handlers translate
- * between the spectator's protocol version and the host's native 26.2 protocol.</p>
+ * between the spectator's protocol version and the host's native 26.3 protocol.</p>
  */
 @Mixin(targets = "cheeezer.notenoughspectators.server.SpectatorServerNetworkHandler", remap = false)
 public class SpectatorServerNetworkHandlerMixin {

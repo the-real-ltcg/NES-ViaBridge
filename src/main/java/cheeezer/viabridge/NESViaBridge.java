@@ -39,7 +39,7 @@ public class NESViaBridge implements ModInitializer {
             Via.init(manager);
             manager.init();
             manager.onServerLoaded();
-            LOGGER.info("ViaVersion stack initialised (host protocol = 26.2). Spectators on other versions can now connect.");
+            LOGGER.info("ViaVersion stack initialised (host protocol = 26.3). Spectators on other versions can now connect.");
         } catch (Throwable t) {
             LOGGER.error("Failed to initialise the ViaVersion stack; cross-version spectators will be unavailable", t);
         }

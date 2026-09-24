@@ -3,7 +3,7 @@
   "id": "nes-viabridge",
   "version": "${version}",
   "name": "NES ViaBridge",
-  "description": "Companion mod for Not Enough Spectators that lets spectators on other Minecraft versions connect to a 26.2 host, using the ViaVersion / ViaBackwards / ViaRewind stack.",
+  "description": "Companion mod for Not Enough Spectators that lets spectators on other Minecraft versions connect to a 26.3 host, using the ViaVersion / ViaBackwards / ViaRewind stack.",
   "authors": [
     "the-real-ltcg"
   ],
@@ -30,7 +30,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.14",
-    "minecraft": ">=26.2",
+    "minecraft": ">=26.3",
     "java": ">=25",
     "not-enough-spectators": "*"
   },

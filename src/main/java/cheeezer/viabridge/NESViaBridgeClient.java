@@ -32,7 +32,7 @@ public class NESViaBridgeClient implements ClientModInitializer {
     }
 
     private static void printStatus(FabricClientCommandSource source) {
-        source.sendFeedback(Component.literal("[NES ViaBridge] host protocol: " + ProtocolVersion.v26_2.getName()
+        source.sendFeedback(Component.literal("[NES ViaBridge] host protocol: " + ProtocolVersion.v26_3.getName()
                 + " — spectators may join from other versions."));
 
         Set<UserConnection> connections = BridgeConnections.all();
